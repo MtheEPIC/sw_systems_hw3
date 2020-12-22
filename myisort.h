@@ -1,4 +1,4 @@
-#include <stdbool.h>
+#include <stdio.h>
 
 // main funcs
 void insertion_sort(int* arr, int len); //sort the given array

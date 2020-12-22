@@ -1,17 +1,12 @@
 #include "myisort.h"
-#include <stdio.h>
 
 void insertion_sort(int* arr, int len)
 {
 	int cnt;
-	print_array(arr, len);
 	for (int i = 1; i < len; ++i)
 	{
 		if (*(arr+i) < *(arr+i-1))
 		{
-			// tmp = *(arr+i);
-			// shift_element(arr+i-1, 1);
-			// *(arr+i-1) = tmp;
 			cnt = 1;
 			for (int j = 2; j <= i; ++j)
 			{
@@ -22,7 +17,6 @@ void insertion_sort(int* arr, int len)
 				cnt++;
 			}
 			switch_elements(arr+i, cnt);
-			print_array(arr, len);
 		}
 	}
 }
