@@ -15,8 +15,8 @@ maintxtfind.o: maintxtfind.c
 libisort.a: myisort.o
 	ar rcs libisort.a myisort.o
 
-libtxtfind.a: myfind.o
-	ar rcs libtxtfind.a myfind.o
+libtxtfind.a: mytxtfind.o
+	ar rcs libtxtfind.a mytxtfind.o
 	
 myisorts: libisort.a
 
