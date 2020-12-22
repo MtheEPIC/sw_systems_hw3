@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "myisort.h"
 
-#define ARRAY_SIZE 5
+#define ARRAY_SIZE 50
 
 int main() 
 {	
