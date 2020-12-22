@@ -12,21 +12,21 @@ mainisort.o: mainisort.c
 maintxtfind.o: maintxtfind.c
 	$(CC) $(CFLAGS) -c maintxtfind.c -o maintxtfind.o
 
-libisort.a: myBank.o
-	ar rcs libisort.a myBank.o
+libisort.a: myisort.o
+	ar rcs libisort.a myisort.o
 
-libtxtfind.a: myBank.o
-	ar rcs libtxtfind.a myBank.o
+libtxtfind.a: myfind.o
+	ar rcs libtxtfind.a myfind.o
 	
 myisorts: libisort.a
 
 mytxtfinds: libtxtfind.a	
 	
-isort: main.o libisort.a
-	$(CC) -o isort main.o libisort.a
+isort: mainisort.o libisort.a
+	$(CC) -o isort mainisort.o libisort.a
 
-txtfind: main.o libtxtfind.a
-	$(CC) -o txtfind main.o libtxtfind.a
+txtfind: maintxtfind.o libtxtfind.a
+	$(CC) -o txtfind maintxtfind.o libtxtfind.a
 
 .PHONY: clean
 clean:
