@@ -6,9 +6,6 @@
 
 int getLine(char s[])
 {
-	// int len = sizeof(stdin);
- //    fgets(s, LINE , stdin);
-	// return len;
 	int i = 0;
 	char c;
 	while((c=getchar())!='\n' && c!=EOF)
@@ -27,7 +24,7 @@ int getword(char w[])
 {	
 	int i = 0;
 	char c = getchar();
-	while(c != ' ' && c != '\n' && c!=EOF) //\t
+	while(c != ' ' && c != '\n' && c!=EOF) //&& c!='\t'
 	{
 		w[i] = c;
 		++i;
@@ -40,14 +37,12 @@ int getword(char w[])
 	if (i == 0) 
 		return -1;
 	w[i] = '\0';
-	// if (c == EOF)
-	// 	++i;
 	return i;
 }
-int substring(char* str1, char* str2, int len1, int len2)
+int substring(char* str1, char* str2)
 {
-	// int len1 = getLength(str1);
-	// int len2 = getLength(str2);
+	int len1 = strlen(str1);
+	int len2 = strlen(str2);
 	if (len1 == 0 || len2 == 0)
 		return 0;
 	if (len2 > len1)
@@ -98,18 +93,32 @@ int similar(char* s, char* t, int n)
 }
 void print_lines(char* str)
 {
+	int len;
+	char buffer[LINE];
 
+	len = getLine(buffer);
+	while(len != -1) 
+    {
+    	if (substring(buffer, str))
+    	{
+    		printf("%s\n", buffer);
+    	}
+	    len = getLine(buffer);
+    }
 }
 void print_similar_words(char* str)
 {
+	int len;
+	char buffer[LINE];
 
-}
-int getLength(char* str)
-{
-	return *(&str+1) - str;	
-	// return sizeof(str)/sizeof(str[0]);
-}
-void allocateSpace(char* str, int size)
-{
-	str = (char*)malloc(WORD * sizeof(char));
+	len = getword(buffer);
+	len = getword(buffer);
+	while(len != -1) 
+	{
+		if (similar(buffer, str, 1))
+		{
+			printf("%s\n", buffer);
+		}
+	    len = getword(buffer);
+	}
 }
